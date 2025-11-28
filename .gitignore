@@ -1,0 +1,77 @@
+# ------------------------------------
+# 1. DEPENDENCIES (Thư viện tải về)
+# ------------------------------------
+node_modules/
+*/node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ------------------------------------
+# 2. ENVIRONMENT VARIABLES (Bảo mật)
+# ------------------------------------
+# Chặn tất cả file cấu hình môi trường chứa mật khẩu/API Key
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+*.env.*
+
+# Ngoại lệ: Cho phép file .env.example (nếu có) để hướng dẫn người khác
+!.env.example
+
+# ------------------------------------
+# 3. BUILDS & DIST (File biên dịch)
+# ------------------------------------
+# Backend (Server) build output
+dist/
+server/dist/
+
+# Frontend (Next.js) build output
+.next/
+client/.next/
+out/
+build/
+
+# TypeScript declaration files
+*.tsbuildinfo
+
+# ------------------------------------
+# 4. DEBUG & LOGS (File nhật ký lỗi)
+# ------------------------------------
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs
+*.log
+npm-debug.log
+
+# ------------------------------------
+# 5. OS & EDITOR FILES (File rác hệ thống)
+# ------------------------------------
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# VS Code directory (chứa setting cá nhân)
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ------------------------------------
+# 6. TESTING & COVERAGE
+# ------------------------------------
+coverage/
+.nyc_output/
+
+# ------------------------------------
+# 7. MISC (File tạm khác)
+# ------------------------------------
+.vercel/
