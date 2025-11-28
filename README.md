@@ -59,24 +59,24 @@ Yêu cầu tiên quyết: Máy tính đã cài đặt **Node.js** và **MongoDB*
 Mở một cửa sổ Terminal mới:
 `cd server`
 
-# 1. Cài đặt các gói thư viện
+## 1. Cài đặt các gói thư viện
 `npm install`
 
-# 2. Nạp dữ liệu mẫu (Seed Data)
-# Script sẽ tự động tải ~40.000 từ chuẩn từ Github và làm sạch dữ liệu
+## 2. Nạp dữ liệu mẫu (Seed Data)
+Script sẽ tự động tải ~40.000 từ chuẩn từ Github và làm sạch dữ liệu
 `npm run seed`
 
-# 3. Chạy Server (Mặc định: http://localhost:5000)
+## 3. Chạy Server (Mặc định: http://localhost:5000)
 `npm run dev`
 
 ### Bước 2: Khởi chạy Frontend
 Mở một cửa sổ Terminal mới:
 `cd client`
 
-# 1. Cài đặt thư viện
+## 1. Cài đặt thư viện
 `npm install`
 
-# 2. Chạy ứng dụng Client (Mặc định: http://localhost:3000)
+## 2. Chạy ứng dụng Client (Mặc định: http://localhost:3000)
 `npm run dev`
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
