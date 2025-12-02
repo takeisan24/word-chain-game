@@ -9,7 +9,7 @@ router.get('/:text', getWordInfo);
 // POST: Thêm mới
 router.post('/', addWord);
 
-// PUT: Sửa hoặc Thêm (Upsert) - Cái này giải quyết vấn đề thiếu từ
+// PUT: Sửa hoặc Thêm
 router.put('/:text', upsertWord);
 
 // DELETE: Xóa

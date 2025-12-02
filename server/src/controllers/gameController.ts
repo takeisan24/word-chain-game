@@ -13,7 +13,7 @@ const getLinkingKey = (text: string, lang: 'vn' | 'en'): string => {
 };
 
 // Hàm phụ trợ MỚI: Kiểm tra xem còn đường đi tiếp không
-// Trả về true nếu CÒN từ để nối, false nếu HẾT từ (End Game)
+
 const checkIfNextMovePossible = async (lastWord: string, lang: string, usedWords: string[]): Promise<boolean> => {
   const nextStartKey = getLinkingKey(lastWord, lang as 'vn' | 'en');
   

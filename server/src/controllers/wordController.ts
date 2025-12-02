@@ -4,7 +4,7 @@ import Word from '../models/Word';
 // 1. GET: Tra cứu thông tin một từ
 export const getWordInfo = async (req: Request, res: Response): Promise<void> => {
   try {
-    // FIX: Dùng ngoặc vuông ['text'] thay vì .text
+
     const text = req.params['text']; 
     
     if (!text) {
@@ -24,10 +24,10 @@ export const getWordInfo = async (req: Request, res: Response): Promise<void> =>
   }
 };
 
-// 2. POST: Thêm từ mới (Dành cho thêm thủ công chuẩn)
+// 2. POST: Thêm từ mới
 export const addWord = async (req: Request, res: Response): Promise<void> => {
   try {
-    // req.body thường là any nên dùng dấu chấm vẫn được, nhưng ép kiểu cho chắc
+
     const { text, lang } = req.body;
     
     if (!text || !lang) {

@@ -1,13 +1,20 @@
 import mongoose from 'mongoose';
 import axios from 'axios';
+import dotenv from 'dotenv';
 import Word from './models/Word';
 
+dotenv.config();  // Kích hoạt dotenv
 // Kết nối Localhost
-const MONGO_URI = 'mongodb://127.0.0.1:27017/wordchain_game';
+const MONGO_URI = process.env['MONGO_URI'];
 
-// Link RAW chuẩn cho file tudien.txt (đã chỉnh lại cho đúng định dạng GitHub Raw)
+if (!MONGO_URI) {
+  console.error('❌ MONGO_URI chưa được thiết lập trong biến môi trường.');
+  process.exit(1);
+}
+
+// Link RAW cho file tudien.txt
 const URL_VN = 'https://raw.githubusercontent.com/NNBnh/noi-tu/main/words/words.txt';
-// Link Tiếng Anh (Giữ nguyên)
+// Link Tiếng Anh
 const URL_EN = 'https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt';
 
 const seedData = async () => {
@@ -17,7 +24,7 @@ const seedData = async () => {
     console.log('🔌 Đã kết nối DB. Đang xóa dữ liệu cũ...');
     await Word.deleteMany({}); // Xóa sạch bảng cũ
 
-    // 2. Xử lý Tiếng Việt (File .txt - Mỗi từ 1 dòng)
+    // 2. Xử lý Tiếng Việt (File.txt - Mỗi từ 1 dòng)
     console.log('⬇️  Đang tải từ điển Tiếng Việt mới...');
     const resVN = await axios.get(URL_VN);
     
@@ -32,7 +39,7 @@ const seedData = async () => {
       // 1. Làm sạch dòng: Xóa khoảng trắng thừa, chuyển chữ thường
       let cleanWord = line.trim().toLowerCase();
       
-      // (Phòng hờ) Nếu dòng có chứa định nghĩa (VD: "mèo : con vật..."), ta chỉ lấy phần từ vựng trước dấu :
+      // Nếu dòng có chứa định nghĩa (VD: "mèo : con vật..."), ta chỉ lấy phần từ vựng trước dấu :
       if (cleanWord.includes(':')) {
         cleanWord = cleanWord.split(':')[0].trim();
       }
